@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="mainContainer" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.AppController"
+            prefHeight="768.0" prefWidth="1024.0">
+            
+    <!-- Barre de navigation supérieure -->
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="20">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
+            <Label text="Gestion Bancaire" styleClass="app-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblUserName" styleClass="user-name"/>
+            <Button text="Déconnexion" onAction="#handleLogout" styleClass="logout-button"/>
+        </HBox>
+    </top>
+    
+    <!-- Menu latéral -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="200" spacing="5">
+            <Button text="Clients" onAction="#handleClients" 
+                    styleClass="sidebar-button" maxWidth="Infinity"/>
+            <Button text="Cartes" onAction="#handleCartes" 
+                    styleClass="sidebar-button" maxWidth="Infinity"/>
+            <Button text="Transactions" onAction="#handleTransactions" 
+                    styleClass="sidebar-button" maxWidth="Infinity"/>
+            <Button text="Litiges" onAction="#handleLitiges" 
+                    styleClass="sidebar-button" maxWidth="Infinity"/>
+            <Button text="Programme Fidélité" onAction="#handleFidelite" 
+                    styleClass="sidebar-button" maxWidth="Infinity"/>
+            <Button text="Abonnements" onAction="#handleAbonnements" 
+                    styleClass="sidebar-button" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+    
+    <!-- Zone de contenu principale -->
+    <center>
+        <StackPane styleClass="content-area">
+            <Text text="Bienvenue dans l'application de Gestion Bancaire" 
+                  styleClass="welcome-text"/>
+        </StackPane>
+    </center>
+    
+</BorderPane> 

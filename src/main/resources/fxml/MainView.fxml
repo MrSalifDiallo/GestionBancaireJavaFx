@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Separator?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="main-background" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainViewController">
+   <left>
+      <VBox styleClass="sidebar" prefWidth="250.0" spacing="10.0">
+         <padding>
+            <Insets top="20.0" right="10.0" bottom="20.0" left="10.0"/>
+         </padding>
+         <children>
+            <Label styleClass="app-title" text="Gestion Bancaire" />
+            <Separator />
+            <Label styleClass="menu-section" text="CLIENTS" />
+            <Button fx:id="btnClients" styleClass="menu-button" text="Gestion des Clients" onAction="#showClientsView" />
+            <Label styleClass="menu-section" text="CARTES" />
+            <Button fx:id="btnCartes" styleClass="menu-button" text="Gestion des Cartes" onAction="#showCartesView" />
+            <Button fx:id="btnTransactions" styleClass="menu-button" text="Transactions" onAction="#showTransactionsView" />
+            <Button fx:id="btnAbonnements" styleClass="menu-button" text="Abonnements" onAction="#showAbonnementsView" />
+            <Label styleClass="menu-section" text="SERVICES" />
+            <Button fx:id="btnLitiges" styleClass="menu-button" text="Gestion des Litiges" onAction="#showLitigesView" />
+            <Button fx:id="btnFidelite" styleClass="menu-button" text="Programme Fidélité" onAction="#showFideliteView" />
+            <Separator />
+            <Label styleClass="menu-section" text="ADMINISTRATION" />
+            <Button fx:id="btnAdmin" styleClass="menu-button" text="Administration" onAction="#showAdminView" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <BorderPane fx:id="contentPane" styleClass="content-area">
+         <top>
+            <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="20.0">
+               <padding>
+                  <Insets top="10.0" right="20.0" bottom="10.0" left="20.0"/>
+               </padding>
+               <children>
+                  <Label fx:id="lblPageTitle" styleClass="page-title" text="Accueil" />
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </center>
+</BorderPane> 

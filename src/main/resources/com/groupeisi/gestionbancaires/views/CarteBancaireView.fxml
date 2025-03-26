@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.view.CarteBancaireViewController"
+      spacing="10" padding="10">
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Gestion des Cartes Bancaires" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Ajouter une carte" onAction="#handleAjouterCarte"/>
+    </HBox>
+
+    <TableView fx:id="carteTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="numeroColumn" text="Numéro" prefWidth="150"/>
+            <TableColumn fx:id="dateExpirationColumn" text="Date d'expiration" prefWidth="120"/>
+            <TableColumn fx:id="soldeColumn" text="Solde" prefWidth="100"/>
+            <TableColumn fx:id="limiteJournaliereColumn" text="Limite journalière" prefWidth="120"/>
+            <TableColumn fx:id="statutColumn" text="Statut" prefWidth="100"/>
+            <TableColumn fx:id="clientColumn" text="Client" prefWidth="200"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Modifier" onAction="#handleModifierCarte"/>
+        <Button text="Supprimer" onAction="#handleSupprimerCarte" style="-fx-background-color: #ff4444;"/>
+    </HBox>
+
+</VBox> 

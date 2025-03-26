@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.groupeisi.gestionbancaires.GestionCbController"
+      styleClass="login-container">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Text text="Gestion des Cartes Bancaires" styleClass="title-text"/>
+    <Text text="Connexion Administrateur" styleClass="subtitle-text"/>
+
+    <VBox spacing="10.0" maxWidth="300">
+        <Label text="Identifiant"/>
+        <TextField fx:id="txtUsername" promptText="admin"/>
+        
+        <Label text="Mot de passe"/>
+        <PasswordField fx:id="txtPassword" promptText="••••"/>
+        
+        <Label fx:id="lblMessage" styleClass="message-label"/>
+        
+        <Button text="Se connecter" onAction="#onLoginButtonClick" 
+                styleClass="login-button" defaultButton="true"/>
+    </VBox>
+</VBox> 

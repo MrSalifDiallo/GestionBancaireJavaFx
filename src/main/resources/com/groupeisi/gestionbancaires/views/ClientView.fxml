@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.groupeisi.gestionbancaires.views.ClientViewController"
+      spacing="10" styleClass="content-area">
+    
+    <!-- En-tête -->
+    <HBox spacing="10" alignment="CENTER_LEFT" styleClass="header-bar">
+        <Label text="Gestion des Clients" styleClass="page-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="txtRecherche" promptText="Rechercher un client..." styleClass="search-field">
+            <HBox.margin>
+                <Insets right="10"/>
+            </HBox.margin>
+        </TextField>
+        <Button text="Nouveau Client" onAction="#handleNewClient" styleClass="button">
+            <graphic>
+                <Region styleClass="icon-add"/>
+            </graphic>
+        </Button>
+    </HBox>
+
+    <!-- Contenu principal -->
+    <SplitPane VBox.vgrow="ALWAYS" dividerPositions="0.7">
+        <!-- Liste des clients -->
+        <VBox spacing="10">
+            <TableView fx:id="tableClients" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colNom" text="Nom" prefWidth="100"/>
+                    <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="100"/>
+                    <TableColumn fx:id="colEmail" text="Email" prefWidth="150"/>
+                    <TableColumn fx:id="colTelephone" text="Téléphone" prefWidth="100"/>
+                    <TableColumn fx:id="colAdresse" text="Adresse" prefWidth="150"/>
+                    <TableColumn fx:id="colDateInscription" text="Date d'inscription" prefWidth="120"/>
+                    <TableColumn fx:id="colStatut" text="Statut" prefWidth="80"/>
+                </columns>
+                <placeholder>
+                    <Label text="Aucun client trouvé"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+
+        <!-- Détails du client -->
+        <VBox spacing="10" styleClass="details-panel">
+            <Label text="Détails du Client" styleClass="section-title"/>
+            
+            <GridPane styleClass="details-grid" hgap="10" vgap="10">
+                <Label text="Nom :" styleClass="details-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label fx:id="lblNom" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                
+                <Label text="Prénom :" styleClass="details-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label fx:id="lblPrenom" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                
+                <Label text="Email :" styleClass="details-label" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <Label fx:id="lblEmail" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                
+                <Label text="Téléphone :" styleClass="details-label" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <Label fx:id="lblTelephone" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                
+                <Label text="Adresse :" styleClass="details-label" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                <Label fx:id="lblAdresse" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            </GridPane>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Modifier" onAction="#handleEditClient" styleClass="button">
+                    <graphic>
+                        <Region styleClass="icon-edit"/>
+                    </graphic>
+                </Button>
+                <Button text="Supprimer" onAction="#handleDeleteClient" styleClass="button, danger">
+                    <graphic>
+                        <Region styleClass="icon-delete"/>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </SplitPane>
+</VBox> 

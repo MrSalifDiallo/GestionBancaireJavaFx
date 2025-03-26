@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.groupeisi.gestionbancaires.MainViewController"
+            prefHeight="768.0" prefWidth="1024.0">
+            
+    <!-- Menu latéral -->
+    <left>
+        <VBox spacing="10" styleClass="sidebar" prefWidth="200">
+            <padding>
+                <Insets top="20" right="10" bottom="20" left="10"/>
+            </padding>
+            <children>
+                <Label styleClass="app-title" text="Gestion Bancaire" />
+                <Separator />
+                <Label styleClass="menu-section" text="CLIENTS" />
+                <Button fx:id="btnClients" styleClass="menu-button" text="Gestion des Clients" onAction="#showClientsView" />
+                <Label styleClass="menu-section" text="CARTES" />
+                <Button fx:id="btnCartes" styleClass="menu-button" text="Gestion des Cartes" onAction="#showCartesView" />
+                <Button fx:id="btnTransactions" styleClass="menu-button" text="Transactions" onAction="#showTransactionsView" />
+                <Button fx:id="btnAbonnements" styleClass="menu-button" text="Abonnements" onAction="#showAbonnementsView" />
+                <Label styleClass="menu-section" text="SERVICES" />
+                <Button fx:id="btnLitiges" styleClass="menu-button" text="Gestion des Litiges" onAction="#showLitigesView" />
+                <Button fx:id="btnFidelite" styleClass="menu-button" text="Programme Fidélité" onAction="#showFideliteView" />
+            </children>
+        </VBox>
+    </left>
+    
+    <!-- Zone de contenu principale -->
+    <center>
+        <BorderPane fx:id="contentPane">
+            <top>
+                <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="20">
+                    <padding>
+                        <Insets top="10" right="20" bottom="10" left="20"/>
+                    </padding>
+                    <children>
+                        <Label fx:id="lblPageTitle" styleClass="page-title" text="Accueil" />
+                    </children>
+                </HBox>
+            </top>
+        </BorderPane>
+    </center>
+</BorderPane> 

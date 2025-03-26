@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.groupeisi.gestionbancaires.views.MainViewController"
+      styleClass="main-container">
+    
+    <!-- Sidebar -->
+    <VBox styleClass="sidebar" spacing="10">
+        <Label text="Gestion Bancaire" styleClass="sidebar-title"/>
+        
+        <Label text="Dashboard" onMouseClicked="#handleDashboard" styleClass="nav-item" fx:id="dashboardNav"/>
+        <Label text="Clients" onMouseClicked="#handleClients" styleClass="nav-item" fx:id="clientsNav"/>
+        <Label text="Cartes Bancaires" onMouseClicked="#handleCartesBancaires" styleClass="nav-item" fx:id="cartesNav"/>
+        <Label text="Transactions" onMouseClicked="#handleTransactions" styleClass="nav-item" fx:id="transactionsNav"/>
+        <Label text="Authentification" onMouseClicked="#handleAuthentification" styleClass="nav-item" fx:id="authentificationNav"/>
+        <Label text="Abonnements" onMouseClicked="#handleAbonnements" styleClass="nav-item" fx:id="abonnementsNav"/>
+        <Label text="Litiges" onMouseClicked="#handleLitiges" styleClass="nav-item" fx:id="litigesNav"/>
+        <Label text="Fidélité" onMouseClicked="#handleFidelite" styleClass="nav-item" fx:id="fideliteNav"/>
+        
+        <Region VBox.vgrow="ALWAYS"/>
+        
+        <Label text="Déconnexion" onMouseClicked="#handleDeconnexion" styleClass="nav-item"/>
+    </VBox>
+    
+    <!-- Zone de contenu -->
+    <VBox fx:id="contentArea" styleClass="content-area" HBox.hgrow="ALWAYS">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        
+        <Label text="Bienvenue dans l'application de gestion bancaire" style="-fx-font-size: 24px;"/>
+        <Label text="Veuillez sélectionner une option dans le menu" style="-fx-font-size: 16px;"/>
+    </VBox>
+</HBox> 

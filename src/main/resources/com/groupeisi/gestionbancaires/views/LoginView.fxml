@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.groupeisi.gestionbancaires.views.LoginViewController"
+           styleClass="root">
+    
+    <VBox styleClass="login-container" spacing="20" maxWidth="400">
+        <padding>
+            <Insets top="40" right="40" bottom="40" left="40"/>
+        </padding>
+
+        <Label text="Gestion Bancaire" styleClass="login-title"/>
+        
+        <VBox spacing="10">
+            <Label text="Nom d'utilisateur"/>
+            <TextField fx:id="usernameField" styleClass="login-field" promptText="Entrez votre nom d'utilisateur"/>
+            
+            <Label text="Mot de passe"/>
+            <PasswordField fx:id="passwordField" styleClass="login-field" promptText="Entrez votre mot de passe"/>
+        </VBox>
+
+        <Label fx:id="errorLabel" styleClass="error-label" visible="false"/>
+
+        <Button text="Se connecter" onAction="#handleLogin" styleClass="login-button"/>
+    </VBox>
+</StackPane> 

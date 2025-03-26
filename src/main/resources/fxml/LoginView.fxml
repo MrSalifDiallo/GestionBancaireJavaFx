@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.view.LoginViewController"
+            prefHeight="400.0" prefWidth="600.0"
+            styleClass="login-background">
+            
+    <StackPane AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" 
+               AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        
+        <VBox spacing="20" maxWidth="400" styleClass="login-panel">
+            <padding>
+                <Insets top="30" right="40" bottom="30" left="40"/>
+            </padding>
+            
+            <!-- Logo et titre -->
+            <VBox alignment="CENTER" spacing="10">
+                <ImageView fitHeight="80" fitWidth="80" preserveRatio="true">
+                    <Image url="@/images/bank-logo.png"/>
+                </ImageView>
+                <Text styleClass="login-title" text="Gestion Bancaire"/>
+                <Text styleClass="login-subtitle" text="Administration"/>
+            </VBox>
+            
+            <!-- Formulaire de connexion -->
+            <VBox spacing="15">
+                <Label text="Nom d'utilisateur" styleClass="login-label"/>
+                <TextField fx:id="txtUsername" promptText="Entrez votre nom d'utilisateur"
+                         styleClass="login-field"/>
+                         
+                <Label text="Mot de passe" styleClass="login-label"/>
+                <PasswordField fx:id="txtPassword" promptText="Entrez votre mot de passe"
+                            styleClass="login-field"/>
+                            
+                <Label fx:id="lblError" styleClass="error-label" visible="false"/>
+                
+                <Button text="Se connecter" onAction="#handleLogin" 
+                        styleClass="login-button" defaultButton="true"/>
+            </VBox>
+            
+            <!-- Footer -->
+            <Text styleClass="login-footer" text="© 2024 Gestion Bancaire. Tous droits réservés."/>
+        </VBox>
+        
+    </StackPane>
+</AnchorPane> 

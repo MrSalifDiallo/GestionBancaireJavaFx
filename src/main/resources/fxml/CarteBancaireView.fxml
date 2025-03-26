@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20.0" styleClass="content-area" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.CarteBancaireViewController">
+   <padding>
+      <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+   </padding>
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="20.0">
+         <children>
+            <Button fx:id="btnNouvelleCarte" styleClass="btn-primary" text="Nouvelle Carte" onAction="#handleNouvelleCarte" />
+            <TextField fx:id="txtRecherche" promptText="Rechercher une carte..." HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      
+      <TableView fx:id="tableCartes" VBox.vgrow="ALWAYS">
+         <columns>
+            <TableColumn fx:id="colNumero" text="Numéro" />
+            <TableColumn fx:id="colClient" text="Client" />
+            <TableColumn fx:id="colSolde" text="Solde" />
+            <TableColumn fx:id="colStatut" text="Statut" />
+            <TableColumn fx:id="colDateExp" text="Date d'expiration" />
+            <TableColumn fx:id="colLimite" text="Limite journalière" />
+            <TableColumn fx:id="colCashback" text="Cashback" />
+         </columns>
+      </TableView>
+
+      <TitledPane text="Détails de la carte" expanded="false">
+         <content>
+            <GridPane hgap="10.0" vgap="10.0">
+               <padding>
+                  <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+               </padding>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" />
+               </columnConstraints>
+               
+               <children>
+                  <Label text="Statut:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                  <ComboBox fx:id="comboStatut" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                  
+                  <Label text="Limite journalière:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                  <TextField fx:id="txtLimite" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                  
+                  <Label text="Actions:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                  <HBox spacing="10.0" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                     <children>
+                        <Button fx:id="btnBloquer" styleClass="btn-warning" text="Bloquer" onAction="#handleBloquerCarte" />
+                        <Button fx:id="btnSupprimer" styleClass="btn-danger" text="Supprimer" onAction="#handleSupprimerCarte" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </content>
+      </TitledPane>
+
+      <TitledPane text="Transactions récentes" expanded="false">
+         <content>
+            <TableView fx:id="tableTransactions" prefHeight="200.0">
+               <columns>
+                  <TableColumn fx:id="colTransDate" text="Date" />
+                  <TableColumn fx:id="colTransType" text="Type" />
+                  <TableColumn fx:id="colTransMontant" text="Montant" />
+                  <TableColumn fx:id="colTransStatut" text="Statut" />
+                  <TableColumn fx:id="colTransCommercant" text="Commerçant" />
+               </columns>
+            </TableView>
+         </content>
+      </TitledPane>
+
+      <TitledPane text="Abonnements actifs" expanded="false">
+         <content>
+            <TableView fx:id="tableAbonnements" prefHeight="200.0">
+               <columns>
+                  <TableColumn fx:id="colAboService" text="Service" />
+                  <TableColumn fx:id="colAboMontant" text="Montant" />
+                  <TableColumn fx:id="colAboDatePrel" text="Date prélèvement" />
+                  <TableColumn fx:id="colAboStatut" text="Statut" />
+               </columns>
+            </TableView>
+         </content>
+      </TitledPane>
+   </children>
+</VBox> 

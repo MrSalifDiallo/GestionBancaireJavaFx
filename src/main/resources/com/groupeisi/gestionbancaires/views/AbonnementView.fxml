@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      spacing="10" styleClass="content-container">
+    
+    <!-- Message d'avertissement -->
+    <Label text="⚠️ Fonctionnalité non implémentée - Gestion des Abonnements" 
+           style="-fx-background-color: #ff5252; -fx-text-fill: white; -fx-padding: 10px;
+                  -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 5px;
+                  -fx-alignment: center; -fx-max-width: infinity;"/>
+
+    <!-- Barre d'outils -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <Button text="Nouvel Abonnement" styleClass="action-button"/>
+        <TextField promptText="Rechercher un abonnement..." HBox.hgrow="ALWAYS"/>
+        <ComboBox promptText="Type d'abonnement"/>
+        <ComboBox promptText="Statut"/>
+    </HBox>
+
+    <!-- Tableau des abonnements -->
+    <TableView VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="Client" prefWidth="150"/>
+            <TableColumn text="Type" prefWidth="120"/>
+            <TableColumn text="Date début" prefWidth="100"/>
+            <TableColumn text="Date fin" prefWidth="100"/>
+            <TableColumn text="Montant mensuel" prefWidth="120"/>
+            <TableColumn text="Statut" prefWidth="100"/>
+            <TableColumn text="Actions" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <!-- Détails de l'abonnement -->
+    <TitledPane text="Détails de l'abonnement" expanded="false">
+        <VBox spacing="10">
+            <GridPane hgap="10" vgap="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="Client:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label fx:id="labelClient" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Type d'abonnement:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label fx:id="labelType" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Date de début:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <Label fx:id="labelDateDebut" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Date de fin:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <Label fx:id="labelDateFin" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <Label text="Montant mensuel:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                <Label fx:id="labelMontant" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                <Label text="Avantages:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                <TextArea fx:id="textAvantages" GridPane.columnIndex="1" GridPane.rowIndex="5"
+                         editable="false" wrapText="true" prefRowCount="3"/>
+            </GridPane>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Résilier l'abonnement" styleClass="danger-button"/>
+                <Button text="Modifier" styleClass="action-button"/>
+                <Button text="Renouveler" styleClass="action-button"/>
+            </HBox>
+        </VBox>
+    </TitledPane>
+</VBox> 

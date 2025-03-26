@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      spacing="10" styleClass="content-container">
+    
+    <!-- Message d'avertissement -->
+    <Label text="⚠️ Fonctionnalité non implémentée - Gestion des Transactions" 
+           style="-fx-background-color: #ff5252; -fx-text-fill: white; -fx-padding: 10px;
+                  -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 5px;
+                  -fx-alignment: center; -fx-max-width: infinity;"/>
+
+    <!-- Barre d'outils -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <Button text="Nouvelle Transaction" styleClass="action-button"/>
+        <TextField promptText="Rechercher une transaction..." HBox.hgrow="ALWAYS"/>
+        <ComboBox promptText="Filtrer par type"/>
+        <DatePicker promptText="Date début"/>
+        <DatePicker promptText="Date fin"/>
+    </HBox>
+
+    <!-- Tableau des transactions -->
+    <TableView VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="Date" prefWidth="120"/>
+            <TableColumn text="Type" prefWidth="100"/>
+            <TableColumn text="Montant" prefWidth="100"/>
+            <TableColumn text="Émetteur" prefWidth="150"/>
+            <TableColumn text="Destinataire" prefWidth="150"/>
+            <TableColumn text="Statut" prefWidth="100"/>
+            <TableColumn text="Actions" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <!-- Détails de la transaction -->
+    <TitledPane text="Détails de la transaction" expanded="false">
+        <VBox spacing="10">
+            <GridPane hgap="10" vgap="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="ID Transaction:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label fx:id="labelId" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Date:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label fx:id="labelDate" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Type:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <Label fx:id="labelType" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Montant:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <Label fx:id="labelMontant" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                <TextArea fx:id="textDescription" GridPane.columnIndex="1" GridPane.rowIndex="4" 
+                         editable="false" wrapText="true" prefRowCount="3"/>
+            </GridPane>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Annuler la transaction" styleClass="danger-button"/>
+                <Button text="Imprimer le reçu" styleClass="action-button"/>
+            </HBox>
+        </VBox>
+    </TitledPane>
+</VBox> 

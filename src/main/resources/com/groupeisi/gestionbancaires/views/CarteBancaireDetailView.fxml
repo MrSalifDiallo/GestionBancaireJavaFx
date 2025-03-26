@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Rectangle?>
+<?import java.net.URL?>
+
+<VBox spacing="20" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Représentation visuelle de la carte -->
+    <StackPane styleClass="card-preview">
+        <Rectangle width="400" height="250" styleClass="card-background" arcWidth="20" arcHeight="20"/>
+        <VBox spacing="15" maxWidth="360" maxHeight="210">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <HBox alignment="CENTER_RIGHT">
+                <Label text="GestionBancaire" styleClass="card-bank-name"/>
+            </HBox>
+            
+            <VBox spacing="5">
+                <Label fx:id="cardNumberPreview" text="**** **** **** ****" styleClass="card-number"/>
+            </VBox>
+            
+            <HBox spacing="50">
+                <VBox spacing="2">
+                    <Label text="TITULAIRE" styleClass="card-label"/>
+                    <Label fx:id="cardHolderPreview" text="NOM PRÉNOM" styleClass="card-holder"/>
+                </VBox>
+                
+                <VBox spacing="2">
+                    <Label text="EXPIRE" styleClass="card-label"/>
+                    <Label fx:id="cardExpiryPreview" text="MM/AA" styleClass="card-expiry"/>
+                </VBox>
+                
+                <VBox spacing="2">
+                    <Label text="CVV" styleClass="card-label"/>
+                    <Label fx:id="cardCvvPreview" text="***" styleClass="card-cvv"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </StackPane>
+
+    <stylesheets>
+        <URL value="@../../../../styles/card-styles.css"/>
+    </stylesheets>
+</VBox> 

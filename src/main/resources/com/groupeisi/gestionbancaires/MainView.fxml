@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:id="mainLayout" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.groupeisi.gestionbancaires.MainViewController"
+            styleClass="main-container">
+
+    <!-- Barre de navigation latérale -->
+    <left>
+        <VBox fx:id="menuContainer" styleClass="sidebar">
+            <Label text="GestionBancaire" styleClass="app-title"/>
+            
+            <Button fx:id="btnClients" text="Clients" onAction="#handleShowClientView" styleClass="nav-button">
+                <graphic>
+                    <Region styleClass="icon-clients"/>
+                </graphic>
+            </Button>
+            
+            <Button fx:id="btnCartes" text="Cartes Bancaires" onAction="#handleShowCarteBancaireView" styleClass="nav-button">
+                <graphic>
+                    <Region styleClass="icon-cards"/>
+                </graphic>
+            </Button>
+            
+            <Button fx:id="btnTransactions" text="Transactions" onAction="#handleShowTransactionView" styleClass="nav-button">
+                <graphic>
+                    <Region styleClass="icon-transactions"/>
+                </graphic>
+            </Button>
+            
+            <Button fx:id="btnAbonnements" text="Abonnements" onAction="#handleShowAbonnementView" styleClass="nav-button">
+                <graphic>
+                    <Region styleClass="icon-subscriptions"/>
+                </graphic>
+            </Button>
+            
+            <Button fx:id="btnLitiges" text="Litiges" onAction="#handleShowLitigeView" styleClass="nav-button">
+                <graphic>
+                    <Region styleClass="icon-disputes"/>
+                </graphic>
+            </Button>
+            
+            <Button fx:id="btnFidelite" text="Programme Fidélité" onAction="#handleShowFideliteView" styleClass="nav-button">
+                <graphic>
+                    <Region styleClass="icon-loyalty"/>
+                </graphic>
+            </Button>
+
+            <Region VBox.vgrow="ALWAYS"/> <!-- Espaceur -->
+            
+            <Button fx:id="btnDeconnexion" text="Déconnexion" onAction="#handleDeconnexion" styleClass="nav-button, logout-button">
+                <graphic>
+                    <Region styleClass="icon-logout"/>
+                </graphic>
+            </Button>
+        </VBox>
+    </left>
+
+    <!-- Contenu principal -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area">
+            <!-- Le contenu sera chargé dynamiquement ici -->
+        </StackPane>
+    </center>
+
+</BorderPane> 

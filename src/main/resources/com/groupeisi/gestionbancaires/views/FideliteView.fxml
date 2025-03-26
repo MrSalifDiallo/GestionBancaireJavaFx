@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      spacing="10" styleClass="content-container">
+    
+    <!-- Message d'avertissement -->
+    <Label text="⚠️ Fonctionnalité non implémentée - Programme de Fidélité" 
+           style="-fx-background-color: #ff5252; -fx-text-fill: white; -fx-padding: 10px;
+                  -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 5px;
+                  -fx-alignment: center; -fx-max-width: infinity;"/>
+
+    <!-- Barre d'outils -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <Button text="Nouvelle Récompense" styleClass="action-button"/>
+        <TextField promptText="Rechercher un client..." HBox.hgrow="ALWAYS"/>
+        <ComboBox promptText="Niveau de fidélité"/>
+    </HBox>
+
+    <!-- Tableau des points de fidélité -->
+    <TableView VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="Client" prefWidth="150"/>
+            <TableColumn text="Points actuels" prefWidth="100"/>
+            <TableColumn text="Niveau" prefWidth="100"/>
+            <TableColumn text="Points cumulés" prefWidth="120"/>
+            <TableColumn text="Dernière activité" prefWidth="120"/>
+            <TableColumn text="Actions" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <!-- Détails du programme de fidélité -->
+    <GridPane hgap="20" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
+        </columnConstraints>
+
+        <!-- Détails client -->
+        <TitledPane text="Détails du client" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <VBox spacing="10">
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+
+                    <Label text="Nom:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <Label fx:id="labelNom" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Points actuels:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <Label fx:id="labelPoints" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Niveau:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <Label fx:id="labelNiveau" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Prochain niveau dans:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <Label fx:id="labelProchainNiveau" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                </GridPane>
+
+                <ProgressBar progress="0.7" maxWidth="Infinity"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Catalogue de récompenses -->
+        <TitledPane text="Catalogue de récompenses" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <VBox spacing="10">
+                <ListView fx:id="listRecompenses" VBox.vgrow="ALWAYS">
+                    <!-- Les récompenses seront ajoutées dynamiquement -->
+                </ListView>
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button text="Échanger des points" styleClass="action-button"/>
+                </HBox>
+            </VBox>
+        </TitledPane>
+
+        <!-- Historique des points -->
+        <TitledPane text="Historique des points" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <TableView>
+                <columns>
+                    <TableColumn text="Date" prefWidth="120"/>
+                    <TableColumn text="Type" prefWidth="100"/>
+                    <TableColumn text="Points" prefWidth="100"/>
+                    <TableColumn text="Description" prefWidth="300"/>
+                </columns>
+            </TableView>
+        </TitledPane>
+    </GridPane>
+</VBox> 

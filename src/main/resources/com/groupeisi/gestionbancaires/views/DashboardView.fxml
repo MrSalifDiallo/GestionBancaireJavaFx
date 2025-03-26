@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.groupeisi.gestionbancaires.views.DashboardViewController"
+      spacing="20">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- En-tête -->
+    <HBox spacing="20">
+        <!-- Carte des statistiques clients -->
+        <VBox styleClass="stat-card" spacing="10">
+            <padding>
+                <Insets all="20"/>
+            </padding>
+            <Label text="Clients" styleClass="card-title"/>
+            <Label fx:id="totalClientsLabel" text="0" styleClass="stat-number"/>
+            <Label text="Total des clients" styleClass="stat-description"/>
+        </VBox>
+
+        <!-- Carte des statistiques cartes bancaires -->
+        <VBox styleClass="stat-card" spacing="10">
+            <padding>
+                <Insets all="20"/>
+            </padding>
+            <Label text="Cartes Bancaires" styleClass="card-title"/>
+            <Label fx:id="totalCartesLabel" text="0" styleClass="stat-number"/>
+            <Label text="Cartes actives" styleClass="stat-description"/>
+        </VBox>
+
+        <!-- Carte des statistiques transactions -->
+        <VBox styleClass="stat-card" spacing="10">
+            <padding>
+                <Insets all="20"/>
+            </padding>
+            <Label text="Transactions" styleClass="card-title"/>
+            <Label fx:id="totalTransactionsLabel" text="0" styleClass="stat-number"/>
+            <Label text="Transactions du jour" styleClass="stat-description"/>
+        </VBox>
+
+        <!-- Carte des statistiques litiges -->
+        <VBox styleClass="stat-card" spacing="10">
+            <padding>
+                <Insets all="20"/>
+            </padding>
+            <Label text="Litiges" styleClass="card-title"/>
+            <Label fx:id="totalLitigesLabel" text="0" styleClass="stat-number"/>
+            <Label text="Litiges en cours" styleClass="stat-description"/>
+        </VBox>
+    </HBox>
+
+    <!-- Tableau des dernières transactions -->
+    <VBox spacing="10">
+        <Label text="Dernières Transactions" styleClass="section-title"/>
+        <TableView fx:id="transactionsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="dateColumn" text="Date"/>
+                <TableColumn fx:id="montantColumn" text="Montant"/>
+                <TableColumn fx:id="typeColumn" text="Type"/>
+                <TableColumn fx:id="statutColumn" text="Statut"/>
+                <TableColumn fx:id="clientColumn" text="Client"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <!-- Tableau des litiges récents -->
+    <VBox spacing="10">
+        <Label text="Litiges Récents" styleClass="section-title"/>
+        <TableView fx:id="litigesTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="litigeDateColumn" text="Date"/>
+                <TableColumn fx:id="litigeMotifColumn" text="Motif"/>
+                <TableColumn fx:id="litigeStatutColumn" text="Statut"/>
+                <TableColumn fx:id="litigeClientColumn" text="Client"/>
+            </columns>
+        </TableView>
+    </VBox>
+</VBox> 

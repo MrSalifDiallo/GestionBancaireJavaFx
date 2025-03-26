@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.view.AbonnementViewController"
+            prefHeight="600.0" prefWidth="900.0">
+    <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" 
+          AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+        
+        <!-- En-tête avec boutons et filtres -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button fx:id="btnNouvelAbonnement" text="Nouvel Abonnement" 
+                    onAction="#handleNouvelAbonnement" styleClass="button-primary"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Service :"/>
+            <ComboBox fx:id="comboService" prefWidth="150"/>
+            <Label text="Rechercher :"/>
+            <TextField fx:id="txtRecherche" prefWidth="200"/>
+        </HBox>
+
+        <!-- Section principale avec tableau et détails -->
+        <SplitPane VBox.vgrow="ALWAYS" orientation="HORIZONTAL">
+            <!-- Tableau des abonnements actifs -->
+            <VBox spacing="5">
+                <Label text="Abonnements actifs" styleClass="section-header"/>
+                <TableView fx:id="tableAbonnements" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colClient" text="Client" prefWidth="150"/>
+                        <TableColumn fx:id="colCarte" text="Carte" prefWidth="100"/>
+                        <TableColumn fx:id="colService" text="Service" prefWidth="100"/>
+                        <TableColumn fx:id="colMontant" text="Montant" prefWidth="80"/>
+                        <TableColumn fx:id="colDateProchainPrel" text="Prochain Prélèvement" prefWidth="120"/>
+                        <TableColumn fx:id="colStatut" text="Statut" prefWidth="80"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Panneau de détails -->
+            <VBox spacing="10" prefWidth="300">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Détails de l'abonnement" styleClass="section-header"/>
+                <GridPane vgap="5" hgap="5">
+                    <Label text="Client :" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <Label fx:id="lblClient" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                    
+                    <Label text="Service :" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <Label fx:id="lblService" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    
+                    <Label text="Montant :" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <Label fx:id="lblMontant" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    
+                    <Label text="Prochain prélèvement :" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <Label fx:id="lblProchainPrel" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                    
+                    <Label text="Statut :" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <ComboBox fx:id="comboStatut" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                </GridPane>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Modifier" onAction="#handleModifier"/>
+                    <Button text="Suspendre" onAction="#handleSuspendre" styleClass="button-warning"/>
+                    <Button text="Résilier" onAction="#handleResilier" styleClass="button-danger"/>
+                </HBox>
+            </VBox>
+        </SplitPane>
+
+        <!-- Section historique -->
+        <VBox spacing="5">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Historique des abonnements" styleClass="section-header"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="Du :"/>
+                <DatePicker fx:id="dateDebut"/>
+                <Label text="Au :"/>
+                <DatePicker fx:id="dateFin"/>
+                <Button text="Filtrer" onAction="#handleFiltrer"/>
+            </HBox>
+            
+            <TableView fx:id="tableHistorique" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="colHistClient" text="Client" prefWidth="150"/>
+                    <TableColumn fx:id="colHistService" text="Service" prefWidth="100"/>
+                    <TableColumn fx:id="colHistMontant" text="Montant" prefWidth="80"/>
+                    <TableColumn fx:id="colHistDateDebut" text="Date début" prefWidth="100"/>
+                    <TableColumn fx:id="colHistDateFin" text="Date fin" prefWidth="100"/>
+                    <TableColumn fx:id="colHistStatut" text="Statut" prefWidth="80"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </VBox>
+</AnchorPane> 

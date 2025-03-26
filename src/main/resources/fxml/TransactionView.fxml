@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20.0" styleClass="content-area" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.TransactionViewController">
+   <padding>
+      <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+   </padding>
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="20.0">
+         <children>
+            <Button fx:id="btnNouvelleTransaction" styleClass="btn-primary" text="Nouvelle Transaction" onAction="#handleNouvelleTransaction" />
+            <Region HBox.hgrow="ALWAYS" />
+            <ComboBox fx:id="comboFiltre" promptText="Filtrer par type" />
+            <TextField fx:id="txtRecherche" promptText="Rechercher..." />
+         </children>
+      </HBox>
+
+      <TabPane>
+         <tabs>
+            <Tab text="Transactions en cours">
+               <content>
+                  <VBox spacing="10.0">
+                     <TableView fx:id="tableTransactions" VBox.vgrow="ALWAYS">
+                        <columns>
+                           <TableColumn fx:id="colDate" text="Date" />
+                           <TableColumn fx:id="colType" text="Type" />
+                           <TableColumn fx:id="colCarte" text="Carte" />
+                           <TableColumn fx:id="colMontant" text="Montant" />
+                           <TableColumn fx:id="colCommercant" text="Commerçant" />
+                           <TableColumn fx:id="colStatut" text="Statut" />
+                           <TableColumn fx:id="colAuthentification" text="Authentification" />
+                        </columns>
+                     </TableView>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="Historique">
+               <content>
+                  <VBox spacing="10.0">
+                     <HBox spacing="10.0">
+                        <children>
+                           <DatePicker fx:id="dateDebut" promptText="Date début" />
+                           <DatePicker fx:id="dateFin" promptText="Date fin" />
+                           <Button fx:id="btnFiltrer" text="Filtrer" onAction="#handleFiltrer" />
+                        </children>
+                     </HBox>
+                     <TableView fx:id="tableHistorique" VBox.vgrow="ALWAYS">
+                        <columns>
+                           <TableColumn fx:id="colHistDate" text="Date" />
+                           <TableColumn fx:id="colHistType" text="Type" />
+                           <TableColumn fx:id="colHistCarte" text="Carte" />
+                           <TableColumn fx:id="colHistMontant" text="Montant" />
+                           <TableColumn fx:id="colHistCommercant" text="Commerçant" />
+                           <TableColumn fx:id="colHistStatut" text="Statut" />
+                        </columns>
+                     </TableView>
+                  </VBox>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+
+      <TitledPane text="Détails de la transaction" expanded="false">
+         <content>
+            <GridPane hgap="10.0" vgap="10.0">
+               <padding>
+                  <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+               </padding>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" />
+               </columnConstraints>
+               
+               <children>
+                  <Label text="Statut:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                  <Label fx:id="lblStatut" styleClass="status-label" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                  
+                  <Label text="Code OTP:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                  <HBox spacing="10.0" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                     <children>
+                        <TextField fx:id="txtOTP" promptText="Entrez le code OTP" />
+                        <Button fx:id="btnValiderOTP" text="Valider" onAction="#handleValiderOTP" />
+                     </children>
+                  </HBox>
+                  
+                  <Label text="Actions:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                  <HBox spacing="10.0" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                     <children>
+                        <Button fx:id="btnSignalerLitige" styleClass="btn-warning" text="Signaler un litige" onAction="#handleSignalerLitige" />
+                        <Button fx:id="btnAnnuler" styleClass="btn-danger" text="Annuler la transaction" onAction="#handleAnnulerTransaction" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </content>
+      </TitledPane>
+   </children>
+</VBox> 

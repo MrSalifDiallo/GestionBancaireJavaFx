@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Rectangle?>
+<?import java.net.URL?>
+
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.view.CarteBancaireEditorDialogController"
+            prefWidth="400">
+    
+    <headerText>Nouvelle Carte Bancaire</headerText>
+
+    <content>
+        <GridPane vgap="10" hgap="10">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+            <Label text="Numéro:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="numeroField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Label fx:id="numeroError" text="*" style="-fx-text-fill: red;" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+
+            <Label text="Date d'expiration:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <DatePicker fx:id="dateExpirationPicker" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label fx:id="dateExpirationError" text="*" style="-fx-text-fill: red;" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+
+            <Label text="CVV:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="cvvField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Label fx:id="cvvError" text="*" style="-fx-text-fill: red;" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+
+            <Label text="Solde:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextField fx:id="soldeField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <Label fx:id="soldeError" text="*" style="-fx-text-fill: red;" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+
+            <Label text="Limite journalière:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <TextField fx:id="limiteJournaliereField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            <Label fx:id="limiteJournaliereError" text="*" style="-fx-text-fill: red;" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+
+            <Label text="Statut:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+            <ComboBox fx:id="statutComboBox" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+            <Label fx:id="statutError" text="*" style="-fx-text-fill: red;" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+
+            <Label text="Client:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+            <ComboBox fx:id="clientComboBox" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            <Label fx:id="clientError" text="*" style="-fx-text-fill: red;" GridPane.columnIndex="2" GridPane.rowIndex="6"/>
+        </GridPane>
+    </content>
+
+    <buttonTypes>
+        <ButtonType fx:constant="OK"/>
+        <ButtonType fx:constant="CANCEL"/>
+    </buttonTypes>
+
+    <stylesheets>
+        <URL value="@../../../../styles/card-styles.css"/>
+    </stylesheets>
+</DialogPane> 
