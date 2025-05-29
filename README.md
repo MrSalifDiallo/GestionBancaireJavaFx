@@ -90,7 +90,3 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 Projet développé dans le cadre de mes apprentissages Java.
 
 Merci à toutes les personnes qui testent et proposent des améliorations.
-
-yaml
-Copier
-Modifier
