@@ -74,14 +74,23 @@ src/
 - Maven pour la gestion des dépendances
 - Lombok pour réduire le boilerplate
 
-## Contribution
+## 💡 Contribution
 
-1. Fork le projet
+1. Fork le projet 
 2. Créer une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
 3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
 4. Push vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrir une Pull Request
 
-## Licence
+## 📄  Licence
 
 Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails. 
+
+## 🙌 Remerciements
+Projet développé dans le cadre de mes apprentissages Java.
+
+Merci à toutes les personnes qui testent et proposent des améliorations.
+
+yaml
+Copier
+Modifier
